@@ -52,6 +52,7 @@ const data = await axios.post('http://localhost:3000/export', {
 ### format
 
 support 'png', 'jpeg', 'pdf', 'svg'
+
 format will be override if you specify exportOptions.type
 
 ### options
