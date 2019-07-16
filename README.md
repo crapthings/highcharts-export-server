@@ -46,3 +46,7 @@ const data = await axios.post('http://localhost:3000/export', {
   }
 }
 ```
+
+### Alternative
+
+> https://github.com/highcharts/node-export-server
