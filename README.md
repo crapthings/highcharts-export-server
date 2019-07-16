@@ -12,6 +12,7 @@ npm start
 ```js
 const data = await axios.post('http://localhost:3000/export', {
   {
+    format: 'png', // can be png, jpeg, pdf, svg
     options: {
       chart: {
         type: 'bar'
