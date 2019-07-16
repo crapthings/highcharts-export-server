@@ -35,7 +35,8 @@ const data = await axios.post('http://localhost:3000/export', {
         name: 'John',
         data: [5, 7, 3]
       }]
-    }
+    },
+    exportOptions: {} // this can be override exportChartLocal({ ...exportOptions })
   }
 })
 ```
@@ -47,6 +48,21 @@ const data = await axios.post('http://localhost:3000/export', {
   }
 }
 ```
+
+### format
+
+support 'png', 'jpeg', 'pdf', 'svg'
+format will be override if you specify exportOptions.type
+
+### options
+
+> https://www.highcharts.com/docs/getting-started/your-first-chart
+
+> https://api.highcharts.com/highcharts
+
+### exportOptions
+
+> https://api.highcharts.com/highcharts/exporting
 
 ### Alternative
 

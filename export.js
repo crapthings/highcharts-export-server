@@ -10,7 +10,12 @@ module.exports = ({
 }) => async function (req, res) {
   let type
 
-  const { options, format = 'png' } = req.body
+  const {
+    options = {},
+    exportOptions = {},
+    format = 'png',
+  } = req.body
+
   set(options, 'exporting.fallbackToExportServer', false)
 
   const rid = generate('1234567890abcdef', 10)
@@ -40,14 +45,16 @@ module.exports = ({
   })
 
   try {
-    await page.evaluate(async ({ options, type, rid }) => {
+    await page.evaluate(async ({ options, exportOptions, type, rid }) => {
       const chart = Highcharts.chart('container', options)
       chart.exportChartLocal({
         filename: rid,
         type,
+        ...exportOptions
       })
     }, {
       options,
+      exportOptions,
       type,
       rid,
     })
